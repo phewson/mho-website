@@ -4,21 +4,168 @@
     "href": "index.html",
     "title": "Mobility Health Observatory",
     "section": "",
-    "text": "Welcome to the Mobility Health Observatory (MHO). This platform provides data-driven insights into how human movement, transport systems, and synthetic exposure metrics intersect with public health, road safety, and long-term population trends."
-  },
-  {
-    "objectID": "index.html#observatory-modules",
-    "href": "index.html#observatory-modules",
-    "title": "Mobility Health Observatory",
-    "section": "Observatory Modules",
-    "text": "Observatory Modules\n\n\n\nModule\nScope & Methodology\nCoverage\n\n\n\n\nSynthetic Exposure\nSynthetic travel patterns, distance metrics, and activity baselines\nEngland & Wales / GB\n\n\nAPC Models & Lexis\nAge-Period-Cohort fits, long-term trends, and Lexis diagrams\nGreat Britain\n\n\nHealth & Environment\nNoise pollution, active travel benefits, and multi-outcome risks\nSelected GB Regions"
+    "text": "Welcome to the Mobility Health Observatory (MHO). This platform provides data-driven insights into how human movement, transport systems, and synthetic exposure metrics intersect with public health, road safety, and long-term population trends.\n\nKey Focus Areas\n\nSynthetic Exposure: Integrating synthetic exposure variables to estimate population-level risk baselines across temporal and geographic boundaries.\nLong-Term Dynamics: Using Age-Period-Cohort (APC) models and Lexis framework projections to isolate structural demographic changes from short-term policy shifts.\n\n\n\n\nAnalytical Pillars\n\n\n\nPillar\nScope & Methodology\nKey Modules & Coverage\n\n\n\n\nBenchmarking & Trends\nIsolating true policy interventions from demographic noise and structural shifts.\n• APC & Lexis Models• Pareto Efficiency FrontiersCoverage: Great Britain\n\n\nSpatial Risk & Exposure\nMicro-area casualty mapping with built-in boundary reconciliation.\n• LSOA Home Location Mapping• Synthetic Exposure Baselines• Boundary Lookups (2011/2021)Coverage: England & Wales\n\n\nData Linkage & Validation\nCross-checking independent national data sources for absolute integrity.\n• STATS19 vs. Coroner ICD-10• Inquest Lag Tracking• Official Benchmark Calibration (RRCGB)Coverage: Great Britain"
   },
   {
     "objectID": "pages/exposure.html",
     "href": "pages/exposure.html",
     "title": "Synthetic Exposure Variables",
     "section": "",
-    "text": "Coming soon: Deep dive into synthetic exposure modeling."
+    "text": "Coming soon: Deep dive into synthetic exposure modelling."
+  },
+  {
+    "objectID": "pages/spatial-risk.html",
+    "href": "pages/spatial-risk.html",
+    "title": "Spatial Risk & Exposure",
+    "section": "",
+    "text": "Evaluating spatial casualty patterns down to the Lower Layer Super Output Area (LSOA) level is essential for targeted local interventions. However, raw collision maps are notoriously misleading.\nMapping raw casualty counts by LSOA often highlights where populations live or aggregate, rather than where the underlying environment is genuinely dangerous. Furthermore, analyzing multi-decade spatial trends introduces severe geographical friction:\n\nBoundary Drift: UK administrative boundaries are a moving target. LSOAs changed significantly between the 2011 and 2021 censuses—some merged, others split, and many had their borders adjusted.\nResidence vs. Incident Multiplicity: Mapping casualties by home location reveals residential vulnerability and community risk profiles, but requires careful handling to avoid conflating residential density with localized road danger.\nThe Exposure Vacuum: Without a reliable measure of local movement or population at risk (exposure), a high-casualty LSOA might simply be a high-volume corridor, masking its true rate of risk."
+  },
+  {
+    "objectID": "pages/spatial-risk.html#the-challenge-mapping-risk-without-geographical-distortion",
+    "href": "pages/spatial-risk.html#the-challenge-mapping-risk-without-geographical-distortion",
+    "title": "Spatial Risk & Exposure",
+    "section": "",
+    "text": "Evaluating spatial casualty patterns down to the Lower Layer Super Output Area (LSOA) level is essential for targeted local interventions. However, raw collision maps are notoriously misleading.\nMapping raw casualty counts by LSOA often highlights where populations live or aggregate, rather than where the underlying environment is genuinely dangerous. Furthermore, analyzing multi-decade spatial trends introduces severe geographical friction:\n\nBoundary Drift: UK administrative boundaries are a moving target. LSOAs changed significantly between the 2011 and 2021 censuses—some merged, others split, and many had their borders adjusted.\nResidence vs. Incident Multiplicity: Mapping casualties by home location reveals residential vulnerability and community risk profiles, but requires careful handling to avoid conflating residential density with localized road danger.\nThe Exposure Vacuum: Without a reliable measure of local movement or population at risk (exposure), a high-casualty LSOA might simply be a high-volume corridor, masking its true rate of risk."
+  },
+  {
+    "objectID": "pages/spatial-risk.html#our-analytical-approach",
+    "href": "pages/spatial-risk.html#our-analytical-approach",
+    "title": "Spatial Risk & Exposure",
+    "section": "Our Analytical Approach",
+    "text": "Our Analytical Approach\nWe build micro-area spatial models that normalise casualty occurrences against synthetic exposure metrics while maintaining deterministic spatial integrity across census boundary shifts.\n┌─────────────────────────────────────────────────────────┐\n│          Raw Casualty Data & Spatial Geographies        │\n└────────────────────────────┬────────────────────────────┘\n                             │\n          ┌──────────────────┴──────────────────┐\n          ▼                                     ▼\n┌──────────────────────┐              ┌──────────────────────┐\n│ Crosswalk & Boundary │              │ Synthetic Exposure   │\n│ Harmonisation        │              │ Modeling             │\n├──────────────────────┤              ├──────────────────────┤\n│ Resolves:            │              │ Calculates:          │\n│ • 2011 vs 2021 LSOA  │              │ • Micro-area volume  │\n│   boundary shifts    │              │ • Population & modal │\n│ • Local Authority    │              │   travel baselines   │\n│   unitarisations     │              │ • Expected risk rate │\n└──────────┬───────────┘              └──────────┬───────────┘\n           │                                     │\n           └──────────────────┬──────────────────┘\n                              │\n                              ▼\n┌─────────────────────────────────────────────────────────┐\n│        True Spatial Risk Surfaces (LSOA Level)          │\n└─────────────────────────────────────────────────────────┘"
+  },
+  {
+    "objectID": "pages/spatial-risk.html#featured-analytical-modules",
+    "href": "pages/spatial-risk.html#featured-analytical-modules",
+    "title": "Spatial Risk & Exposure",
+    "section": "Featured Analytical Modules",
+    "text": "Featured Analytical Modules\n\n1. Residential Casualty Mapping (LSOA Home Locations)\nMapping casualties by their home LSOA shifts the focus from where collisions happen to who is being affected. This residential perspective is crucial for public health, equity, and targeted community interventions:\n\nVulnerability Mapping: Identifies residential neighbourhoods where inhabitants suffer disproportionate casualty rates regardless of where the crash occurred.\nSocioeconomic & Demographic Context: Links residential casualty profiles directly to local deprivation indices, age structure, and household transport access.\nTargeted Health Interventions: Provides local authorities with the precise spatial evidence needed to deploy community-level road safety education and active travel support.\n\n\n\n\n2. Synthetic Exposure & Boundary Harmonisation\nRaw counts only tell you where; spatial risk modelling tells you how dangerous.\nTo measure true risk, we combine casualty home locations with synthetic exposure baselines while accounting for administrative changes:\n\nHarmonising Census Boundaries: We map historical 2011 LSOA records and post-2023 2021 LSOA census codes into a single, unified spatial frame. This ensures 10-plus year trendlines reflect actual changes on the ground rather than administrative boundary adjustments.\nSynthetic Exposure Rates: By synthesising local trip generation, census commute patterns, and modal splits, we convert raw casualty counts into risk rates per unit of population exposure.\nSpatial Smoothing & Noise Reduction: Micro-area data can be noisy. We apply empirical Bayes spatial smoothing to prevent small-sample LSOAs from distorting local risk maps."
+  },
+  {
+    "objectID": "pages/spatial-risk.html#built-on-deterministic-spatial-infrastructure",
+    "href": "pages/spatial-risk.html#built-on-deterministic-spatial-infrastructure",
+    "title": "Spatial Risk & Exposure",
+    "section": "Built on Deterministic Spatial Infrastructure",
+    "text": "Built on Deterministic Spatial Infrastructure\nHigh-resolution spatial analysis requires absolute pipeline discipline to prevent silent geographic errors:\n\n\n\n\n\n\nNoteSpatial Pipeline Assurance\n\n\n\n\nContainerised PostGIS Engine: All spatial joins, point-in-polygon queries, and distance calculations execute within isolated Docker containers to guarantee bit-for-bit spatial reproducibility across machines.\nVersion-Controlled Crosswalks: Boundary conversion tables (2011-to-2021 LSOA mapping) are version-controlled alongside application code. If a boundary definition updates, the impact is tracked deterministically.\nAutomated Spatial Snapshots: Our automated testing suite verifies total spatial coverage and boundary completeness on every build, ensuring no unmapped LSOAs or orphan records quietly drop off the map."
+  },
+  {
+    "objectID": "pages/spatial-risk.html#explore-the-case-studies-interactive-maps",
+    "href": "pages/spatial-risk.html#explore-the-case-studies-interactive-maps",
+    "title": "Spatial Risk & Exposure",
+    "section": "Explore the Case Studies & Interactive Maps",
+    "text": "Explore the Case Studies & Interactive Maps\nExamine micro-area spatial risk distributions or explore how synthetic exposure adjusts raw casualty counts:\n\n\n\n\nLSOA Residential Casualty Maps →\nInteractive spatial visualisations tracking casualty home locations across UK LSOAs, highlighting community-level vulnerability patterns.\n\n\n\n\n\n\nSynthetic Exposure & Boundary Crosswalks →\nTechnical deep-dive into synthetic exposure estimation methods and 2011-to-2021 LSOA boundary harmonisation techniques."
+  },
+  {
+    "objectID": "pages/exposure-modelling.html",
+    "href": "pages/exposure-modelling.html",
+    "title": "Exposure modelling",
+    "section": "",
+    "text": "Coming soon"
+  },
+  {
+    "objectID": "pages/benchmarking-trends.html",
+    "href": "pages/benchmarking-trends.html",
+    "title": "Benchmarking & Policy Trends",
+    "section": "",
+    "text": "Local authorities, transport executive bodies, and national policymakers face a recurring problem: raw numbers rarely tell the whole story.\nWhen a local authority reports a 15% drop in casualties over five years, is that the result of effective road safety engineering? Or is it simply driven by a shrinking young demographic, changes in regional traffic volumes, or silent shifts in administrative boundaries?\nConversely, when an authority appears to underperform, are they genuinely lagging, or are they operating under severe structural constraints, lower funding, and higher exposure?\nWithout controlling for external drivers, standard league tables and simple time-series dashboards reward lucky authorities and penalize those facing tough structural realities."
+  },
+  {
+    "objectID": "pages/benchmarking-trends.html#the-challenge-evaluating-performance-in-a-complex-world",
+    "href": "pages/benchmarking-trends.html#the-challenge-evaluating-performance-in-a-complex-world",
+    "title": "Benchmarking & Policy Trends",
+    "section": "",
+    "text": "Local authorities, transport executive bodies, and national policymakers face a recurring problem: raw numbers rarely tell the whole story.\nWhen a local authority reports a 15% drop in casualties over five years, is that the result of effective road safety engineering? Or is it simply driven by a shrinking young demographic, changes in regional traffic volumes, or silent shifts in administrative boundaries?\nConversely, when an authority appears to underperform, are they genuinely lagging, or are they operating under severe structural constraints, lower funding, and higher exposure?\nWithout controlling for external drivers, standard league tables and simple time-series dashboards reward lucky authorities and penalize those facing tough structural realities."
+  },
+  {
+    "objectID": "pages/benchmarking-trends.html#our-analytical-approach",
+    "href": "pages/benchmarking-trends.html#our-analytical-approach",
+    "title": "Benchmarking & Policy Trends",
+    "section": "Our Analytical Approach",
+    "text": "Our Analytical Approach\nWe combine advanced demographic modelling with multi-dimensional efficiency analysis to give stakeholders a fair, noise-filtered view of real-world performance.\n┌─────────────────────────────────────────────────────────┐\n│                 Raw Transport & Safety Data              │\n└────────────────────────────┬────────────────────────────┘\n                             │\n          ┌──────────────────┴──────────────────┐\n          ▼                                     ▼\n┌──────────────────────┐              ┌──────────────────────┐\n│ Age-Period-Cohort    │              │ Pareto Boundary      │\n│ (APC) Analysis       │              │ Efficiency Modeling  │\n├──────────────────────┤              ├──────────────────────┤\n│ Isolates:            │              │ Evaluates:           │\n│ • Historical trends  │              │ • Multi-metric trade-│\n│ • Age demographics   │              │   offs (funding vs   │\n│ • Policy shocks      │              │   safety outcomes)   │\n└──────────┬───────────┘              └──────────┬───────────┘\n           │                                     │\n           └──────────────────┬──────────────────┘\n                              │\n                              ▼\n┌─────────────────────────────────────────────────────────┐\n│         Fair, Structural Performance Benchmarks          │\n└─────────────────────────────────────────────────────────┘"
+  },
+  {
+    "objectID": "pages/benchmarking-trends.html#featured-analytical-modules",
+    "href": "pages/benchmarking-trends.html#featured-analytical-modules",
+    "title": "Benchmarking & Policy Trends",
+    "section": "Featured Analytical Modules",
+    "text": "Featured Analytical Modules\n\n1. Age-Period-Cohort (APC) & Lexis Modeling\nTraditional trend analysis lumps all annual changes into a single timeline. APC analysis disentangles three distinct drivers operating simultaneously:\n\nAge Effects: How casualty risks vary naturally across a person’s lifespan (e.g., young driver risk vs. elderly pedestrian vulnerability).\nPeriod Effects: External shocks affecting everyone in a specific calendar year (e.g., national speed limit changes, COVID-19 lockdowns, major weather events).\nCohort Effects: Long-term generational shifts that move with specific birth years (e.g., lower car ownership rates among younger generations, changes in safety culture).\n\n\n\n\n\n\n\nNoteWhy This Matters for Policy\n\n\n\nBy isolating these three dimensions, we prevent misattributing a generational decline in driving (a Cohort effect) to a local road safety campaign (a Period effect). Decision-makers can evaluate whether a policy actually changed behavior or if broader societal trends did the heavy lifting.\n\n\n\n\n\n2. Pareto Boundary & Efficiency Analysis\nEvaluating local authority performance across a single metric creates perverse incentives. A council might achieve zero casualty growth by severely curtailing travel infrastructure investment, or vice versa.\nOur Pareto Boundary Analysis evaluates local authorities across multiple competing dimensions simultaneously—such as safety outcomes, infrastructure expenditure, and population density:\n\nIdentifying the Optimal Frontier: We mathematically plot the “Pareto frontier”—the benchmark curve of local authorities achieving the highest possible safety outcomes for their given resource and environmental constraints.\nFair Peer Comparison: Rather than comparing a dense urban borough to a sprawling rural county, authorities are benchmarked strictly against peer councils operating on similar structural frontiers.\nTarget Setting: Uncovers which specific operational levers an underperforming authority must adjust to move closer to the efficient frontier."
+  },
+  {
+    "objectID": "pages/benchmarking-trends.html#built-on-deterministic-data-integrity",
+    "href": "pages/benchmarking-trends.html#built-on-deterministic-data-integrity",
+    "title": "Benchmarking & Policy Trends",
+    "section": "Built on Deterministic Data Integrity",
+    "text": "Built on Deterministic Data Integrity\nLike all modules in our analytics engine, our benchmarking pipelines are engineered for complete auditability and long-term reproducibility:\n\nVersion-Controlled Boundary Adjustments: Historical trends seamlessly map LSOA 2011 to 2021 census boundary shifts without dropping records or breaking spatial joins.\nAutomated Regression Testing: Every model run is snapshot-tested against stored baselines to ensure upstream data revisions are caught and accounted for immediately.\nReproducible Pipeline Orchestration: Heavy demographic matrix processing is fully deterministic, allowing any historical benchmark calculation to be re-run and verified on demand."
+  },
+  {
+    "objectID": "pages/benchmarking-trends.html#explore-the-case-studies-interactive-demonstrations",
+    "href": "pages/benchmarking-trends.html#explore-the-case-studies-interactive-demonstrations",
+    "title": "Benchmarking & Policy Trends",
+    "section": "Explore the Case Studies & Interactive Demonstrations",
+    "text": "Explore the Case Studies & Interactive Demonstrations\nDive deeper into the methodology, view interactive Lexis surfaces, or explore local authority efficiency frontiers:\n\n\n\n\nAPC Models & Lexis Diagrams →\nInteractive visualizations isolating generational driving trends from national policy shocks in UK casualty data across two decades.\n\n\n\n\n\n\nPareto Efficiency Frontiers →\nMulti-metric benchmarking tool mapping local authorities against optimal expenditure and safety frontiers."
+  },
+  {
+    "objectID": "pages/rrcgb-calibration.html",
+    "href": "pages/rrcgb-calibration.html",
+    "title": "RCGB cross-calibration",
+    "section": "",
+    "text": "Coming soon"
+  },
+  {
+    "objectID": "pages/lsoa-residential-risk.html",
+    "href": "pages/lsoa-residential-risk.html",
+    "title": "LSOA risk profiling",
+    "section": "",
+    "text": "Coming soon"
+  },
+  {
+    "objectID": "approach.html",
+    "href": "approach.html",
+    "title": "Data Integrity & our Spatial Analytics Engine",
+    "section": "",
+    "text": "Building a basic dashboard is easy. Building an auditable, trustable data engine that survives changing real-world boundaries, shifting government datasets, and strict scrutiny is hard.\nIf your decision-making relies on long-term spatial trends—such as road safety metrics, local authority planning, or demographic shifts—you cannot afford “silent data errors.” Traditional ad-hoc dashboards often mask boundary changes or retroactive data updates, leaving you vulnerable to flawed conclusions, embarrassing discrepancies, or failed audits.\nWe build production-grade, highly rigorous analytics pipelines designed around four core promises:\n\nComplete Historical Auditability (“Data Time Travel”): Government data sources and administrative boundaries change constantly. If a metric from a report published two years ago doesn’t match today’s numbers, we can instantly roll our system back to the exact data state on the day that report was generated. You never have to guess whether a shift was caused by a change in our calculations or an official update from the data provider.\nGuaranteed Accuracy via National Calibration: We don’t just write queries and hope they work. Every spatial and statistical pipeline we build is continuously benchmarked and validated directly against official published national statistics (such as Reported Road Casualties Great Britain). If our baselines match the official national aggregates, you can have 100% confidence in our custom spatial breakdowns and local filtering.\nAutomated Data Quality & Smoke Testing: When local authorities split, boundary codes update (like LSOA shifts between census years), or incoming files contain corrupted formatting, our system catches it instantly. Instead of letting bad data silently drop rows or distort your trendlines, our automated safety checks flag issues internally before anything reaches your executive dashboard.\nZero Vendor Lock-In & Portability: Everything we build is containerised and version-controlled. You are not buying a fragile desktop spreadsheet or a proprietary black box; you are investing in a durable, open-source asset that your team can run, audit, or migrate to any cloud environment at any time.\n\n\nTechnical Architecture & Engineering Standards\nFor technical stakeholders, auditors, and engineering teams, our pipeline implements modern DataOps principles to ensure complete reproducibility, regression testing, and deterministic deployments.\n       [ Source Data & Boundary Maps ]\n                      │\n                      ▼\n ┌──────────────────────────────────────────┐\n │ Data & Schema Version Control            │\n │  • Data artifact versioning (DVC)        │\n │  • Deterministic schema migrations       │\n └────────────────────┬─────────────────────┘\n                      │\n                      ▼\n ┌──────────────────────────────────────────┐\n │ Isolated Spatial Database (Docker)       │\n │  • Containerised spatial engine          │\n │  • Automated schema & lookup validation  │\n └────────────────────┬─────────────────────┘\n                      │\n                      ▼\n ┌──────────────────────────────────────────┐\n │ Orchestration & Dependency DAG           │\n │  • Granular dependency tracking          │\n │  • Incremental build processing          │\n └────────────────────┬─────────────────────┘\n                      │\n                      ▼\n ┌──────────────────────────────────────────┐\n │ Automated QA & Regression Suite          │\n │  • Snapshot testing on spatial outputs   │\n │  • Automated calibration vs. benchmarks  │\n └──────────────────────────────────────────┘\n\n\nKey Technical Components\n\nData Artifact & Schema Versioning: Raw datasets, boundary lookups, and database schemas are version-controlled alongside application code. Schema migrations are executed deterministically, enabling complete forward/backward rollbacks to any historical state.\nContainerised Spatial Infrastructure: The underlying spatial database runs inside isolated container environments. This guarantees identical execution environments across local development, continuous integration (CI) runners, and production deployment.\nDirected Acyclic Graph (DAG) Pipeline Orchestration: Pipeline stages—from raw data ingestion to geographic re-projection and boundary crosswalk joins—are managed via strict dependency tracking. Only modified steps are re-executed upon data or code changes, eliminating computational waste.\nAutomated Regression & Snapshot Testing: Analytical outputs undergo continuous automated testing against stored baseline snapshots. Any unexpected drift in aggregated row counts, spatial coverage, or indicator totals triggers build failures prior to deployment.\nCalibrated Baseline Validation: Integration test suites run automated verification queries against published national aggregates. This guarantees mathematical alignment between sub-national spatial queries and top-level official control totals."
+  },
+  {
+    "objectID": "pages/data-validation.html",
+    "href": "pages/data-validation.html",
+    "title": "Data Linkage & Validation",
+    "section": "",
+    "text": "Public sector planning and spatial analytics often rely on administrative datasets as if they were objective ground truths. In practice, administrative data is complex, evolving, and prone to systemic gaps:\n\nScope & Definition Divergence: Police collision statistics (STATS19) capture reported crashes on public highways. Medical mortality records (ONS/Coroner ICD-10 transport codes V01–V99) record underlying cause of death regardless of location or reporting body.\nCoroner Inquest Lags: Death registrations involving coroners often take months or years to resolve. Temporary holding codes (e.g., ICD-10 U50.9) delay final cause-of-death coding, creating historical discrepancies against real-time police stats.\nFormat & Schema Shifts: External data providers quietly update past reporting years, alter file structures, or revise reporting criteria after publication.\n\nIf an analytics system blindly ingests these datasets without cross-validation, decision-makers risk building long-term transport policies on incomplete or silently corrupted numbers."
+  },
+  {
+    "objectID": "pages/data-validation.html#the-challenge-administrative-data-is-full-of-hidden-friction",
+    "href": "pages/data-validation.html#the-challenge-administrative-data-is-full-of-hidden-friction",
+    "title": "Data Linkage & Validation",
+    "section": "",
+    "text": "Public sector planning and spatial analytics often rely on administrative datasets as if they were objective ground truths. In practice, administrative data is complex, evolving, and prone to systemic gaps:\n\nScope & Definition Divergence: Police collision statistics (STATS19) capture reported crashes on public highways. Medical mortality records (ONS/Coroner ICD-10 transport codes V01–V99) record underlying cause of death regardless of location or reporting body.\nCoroner Inquest Lags: Death registrations involving coroners often take months or years to resolve. Temporary holding codes (e.g., ICD-10 U50.9) delay final cause-of-death coding, creating historical discrepancies against real-time police stats.\nFormat & Schema Shifts: External data providers quietly update past reporting years, alter file structures, or revise reporting criteria after publication.\n\nIf an analytics system blindly ingests these datasets without cross-validation, decision-makers risk building long-term transport policies on incomplete or silently corrupted numbers."
+  },
+  {
+    "objectID": "pages/data-validation.html#our-analytical-approach",
+    "href": "pages/data-validation.html#our-analytical-approach",
+    "title": "Data Linkage & Validation",
+    "section": "Our Analytical Approach",
+    "text": "Our Analytical Approach\nWe build continuous, automated data validation pipelines that cross-link independent data sources, resolve classification gaps, and calibrate custom queries against official national control totals.\n┌─────────────────────────────┐        ┌─────────────────────────────┐\n│    STATS19 Police Data      │        │  ONS / Coroner Mortality    │\n│   (Public Road Collisions)  │        │   (ICD-10 Transport V-Codes)│\n└──────────────┬──────────────┘        └──────────────┬──────────────┘\n               │                                      │\n               └──────────────────┬───────────────────┘\n                                  │\n                                  ▼\n┌────────────────────────────────────────────────────────────────────┐\n│                  Data Linkage & Calibration Layer                  │\n├────────────────────────────────────────────────────────────────────┤\n│ • Probabilistic & deterministic multi-pass record linkage          │\n│ • Inquest lag tracking & retroactive revision mapping              │\n│ • Continuous calibration against national baselines (RRCGB)        │\n└─────────────────────────────────┬──────────────────────────────────┘\n                                  │\n                                  ▼\n┌────────────────────────────────────────────────────────────────────┐\n│            Auditable, Calibrated Data Engine & Dashboards          │\n└────────────────────────────────────────────────────────────────────┘"
+  },
+  {
+    "objectID": "pages/data-validation.html#featured-analytical-modules",
+    "href": "pages/data-validation.html#featured-analytical-modules",
+    "title": "Data Linkage & Validation",
+    "section": "Featured Analytical Modules",
+    "text": "Featured Analytical Modules\n\n1. Cross-Source Casualty Linkage (STATS19 vs. Coroner ICD-10)\nBy linking police-reported collisions with medical death registrations, we reconcile structural gaps between transport reporting and medical mortality data:\n\nScope Reconciliation: Disentangles collisions occurring on private land, medical events preceding a crash (e.g., cardiac arrest prior to collision), and suicide classifications (X82) that may be miscategorised in initial reporting.\nCoroner Lag Adjustment: Tracks historical revision curves as coroner inquests conclude, ensuring long-term mortality trendlines accurately reflect true year-of-death statistics rather than reporting lag.\nCompleteness Assessment: Measures under-reporting rates across transport modes and geographical regions by comparing health system admissions against police scene reports.\n\n\n\n\n2. National Benchmark Calibration (RRCGB Alignment)\nCustom spatial queries and sub-national filters should never exist in isolation. Every analytical output in our system is calibrated against official national standards:\n\nCryptographic-Level Baseline Verification: Our automated test suites run continuous verification queries comparing our pipeline outputs directly against published tables in Reported Road Casualties Great Britain (RRCGB).\nZero Discrepancy Guarantee: Matching national published totals down to the exact decimal gives stakeholders absolute confidence that custom LSOA spatial filters, local authority aggregations, and sub-population splits are mathematically sound."
+  },
+  {
+    "objectID": "pages/data-validation.html#built-on-open-deterministic-dataops",
+    "href": "pages/data-validation.html#built-on-open-deterministic-dataops",
+    "title": "Data Linkage & Validation",
+    "section": "Built on Open, Deterministic DataOps",
+    "text": "Built on Open, Deterministic DataOps\nData validation is only as good as the infrastructure supporting it. Our validation pipeline treats data updates as continuous code integrations:\n\n\n\n\n\n\nNoteThe DataOps Guarantee\n\n\n\n\nData Time Travel (DVC): Raw source files and intermediate datasets are version-controlled using Data Version Control. If a government dataset is quietly updated two years after initial release, we can roll the database back to any exact historical state to explain why numbers changed.\nAutomated Smoke Alarms (snapshotr): Regression tests flag unexpected shifts in row counts, spatial coverage, or indicator totals the second a dataset is updated—preventing bad data from quietly reaching production dashboards.\nDeterministic Schema Migrations: All database schema changes and spatial lookup updates are versioned and executed programmatically, leaving a complete audit trail for external reviewers."
+  },
+  {
+    "objectID": "pages/data-validation.html#explore-the-case-studies-validation-frameworks",
+    "href": "pages/data-validation.html#explore-the-case-studies-validation-frameworks",
+    "title": "Data Linkage & Validation",
+    "section": "Explore the Case Studies & Validation Frameworks",
+    "text": "Explore the Case Studies & Validation Frameworks\nExamine how independent national datasets compare or review our automated testing setup:\n\n\n\n\nSTATS19 vs. Coroner ICD-10 Linkage →\nA deep-dive case study linking police collision data with ONS mortality registrations to map reporting gaps and coroner inquest lag.\n\n\n\n\n\n\nNational Calibration & Testing Framework →\nTechnical documentation showing how automated regression testing and RRCGB benchmark calibration guarantee pipeline accuracy."
   },
   {
     "objectID": "pages/apc-models.html",
@@ -33,6 +180,20 @@
     "title": "Age-Period-Cohort Models & Lexis Diagrams",
     "section": "",
     "text": "Road safety and mobility outcomes change over time due to three distinct temporal drivers: * Age Effect: Biological, behavioral, or experiential variations across life stages. * Period Effect: External shocks affecting all age groups simultaneously (e.g., policy changes, pandemic lockdowns). * Cohort Effect: Generational differences shaped by shared historical exposure.\n\n\nShow code\nlibrary(ggplot2)\n\n# Placeholder Lexis grid\nexpand.grid(period = 2000:2020, age = 18:80) |&gt; \n  ggplot(aes(x = period, y = age)) +\n  geom_tile(fill = \"steelblue\", color = \"white\", alpha = 0.3) +\n  labs(\n    title = \"Lexis Framework Grid (GB Data)\",\n    x = \"Period (Calendar Year)\",\n    y = \"Age\"\n  ) +\n  theme_minimal()\n\n\n\n\n\nSample Lexis grid showing temporal exposure distribution."
+  },
+  {
+    "objectID": "pages/pareto-frontiers.html",
+    "href": "pages/pareto-frontiers.html",
+    "title": "Pareto Frontiers",
+    "section": "",
+    "text": "Coming soon"
+  },
+  {
+    "objectID": "pages/stats19-icd10-linkage.html",
+    "href": "pages/stats19-icd10-linkage.html",
+    "title": "STATs19 and coroners rulings",
+    "section": "",
+    "text": "Coming soon"
   },
   {
     "objectID": "pages/health-impacts.html",
