@@ -1,0 +1,33 @@
+---
+title: "Age-Period-Cohort Models & Lexis Diagrams"
+subtitle: "Disentangling demographic shifts from temporal exposure trends"
+---
+
+## Overview
+
+Road safety and mobility outcomes change over time due to three distinct temporal drivers:
+* **Age Effect:** Biological, behavioral, or experiential variations across life stages.
+* **Period Effect:** External shocks affecting all age groups simultaneously (e.g., policy changes, pandemic lockdowns).
+* **Cohort Effect:** Generational differences shaped by shared historical exposure.
+
+```r
+```{r}
+#| label: lexis-placeholder
+#| fig-cap: "Sample Lexis grid showing temporal exposure distribution."
+#| warning: false
+
+library(ggplot2)
+
+# Placeholder Lexis grid
+expand.grid(period = 2000:2020, age = 18:80) |> 
+  ggplot(aes(x = period, y = age)) +
+  geom_tile(fill = "steelblue", color = "white", alpha = 0.3) +
+  labs(
+    title = "Lexis Framework Grid (GB Data)",
+    x = "Period (Calendar Year)",
+    y = "Age"
+  ) +
+  theme_minimal()
+```
+
+

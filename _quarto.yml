@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Mobility Health Observatory"
+  site-url: "https://mobility.insightsforaction.uk"
+  description: "Synthetic exposure, safety, and health analytics across Great Britain"
+
+  navbar:
+    background: primary
+    search: true
+    left:
+      - href: index.qmd
+        text: Home
+      - href: pages/exposure.qmd
+        text: Synthetic Exposure
+      - href: pages/apc-models.qmd
+        text: APC Models & Lexis
+      - href: pages/health-impacts.qmd
+        text: Health & Environment
+      - href: about.qmd
+        text: About
+    right:
+      - icon: github
+        href: https://github.com/your-username/mho-website
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-summary: "Show code"
+    fig-align: center
+
+execute:
+  freeze: auto  # Pre-renders chunks so builds stay fast
