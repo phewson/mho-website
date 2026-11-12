@@ -14,18 +14,32 @@
     "text": "Observatory Modules\n\n\n\nModule\nScope & Methodology\nCoverage\n\n\n\n\nSynthetic Exposure\nSynthetic travel patterns, distance metrics, and activity baselines\nEngland & Wales / GB\n\n\nAPC Models & Lexis\nAge-Period-Cohort fits, long-term trends, and Lexis diagrams\nGreat Britain\n\n\nHealth & Environment\nNoise pollution, active travel benefits, and multi-outcome risks\nSelected GB Regions"
   },
   {
+    "objectID": "pages/exposure.html",
+    "href": "pages/exposure.html",
+    "title": "Synthetic Exposure Variables",
+    "section": "",
+    "text": "Coming soon: Deep dive into synthetic exposure modeling."
+  },
+  {
     "objectID": "pages/apc-models.html",
     "href": "pages/apc-models.html",
     "title": "Age-Period-Cohort Models & Lexis Diagrams",
     "section": "",
-    "text": "Road safety and mobility outcomes change over time due to three distinct temporal drivers: * Age Effect: Biological, behavioral, or experiential variations across life stages. * Period Effect: External shocks affecting all age groups simultaneously (e.g., policy changes, pandemic lockdowns). * Cohort Effect: Generational differences shaped by shared historical exposure.\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\n\n# Placeholder Lexis grid\nexpand.grid(period = 2000:2020, age = 18:80) |&gt; \n  ggplot(aes(x = period, y = age)) +\n  geom_tile(fill = \"steelblue\", color = \"white\", alpha = 0.3) +\n  labs(\n    title = \"Lexis Framework Grid (GB Data)\",\n    x = \"Period (Calendar Year)\",\n    y = \"Age\"\n  ) +\n  theme_minimal()\n\n\n\n\nSample Lexis grid showing temporal exposure distribution.\n\n\n\n:::"
+    "text": "Road safety and mobility outcomes change over time due to three distinct temporal drivers: * Age Effect: Biological, behavioral, or experiential variations across life stages. * Period Effect: External shocks affecting all age groups simultaneously (e.g., policy changes, pandemic lockdowns). * Cohort Effect: Generational differences shaped by shared historical exposure.\n\n\nShow code\nlibrary(ggplot2)\n\n# Placeholder Lexis grid\nexpand.grid(period = 2000:2020, age = 18:80) |&gt; \n  ggplot(aes(x = period, y = age)) +\n  geom_tile(fill = \"steelblue\", color = \"white\", alpha = 0.3) +\n  labs(\n    title = \"Lexis Framework Grid (GB Data)\",\n    x = \"Period (Calendar Year)\",\n    y = \"Age\"\n  ) +\n  theme_minimal()\n\n\n\n\n\nSample Lexis grid showing temporal exposure distribution."
   },
   {
     "objectID": "pages/apc-models.html#overview",
     "href": "pages/apc-models.html#overview",
     "title": "Age-Period-Cohort Models & Lexis Diagrams",
     "section": "",
-    "text": "Road safety and mobility outcomes change over time due to three distinct temporal drivers: * Age Effect: Biological, behavioral, or experiential variations across life stages. * Period Effect: External shocks affecting all age groups simultaneously (e.g., policy changes, pandemic lockdowns). * Cohort Effect: Generational differences shaped by shared historical exposure.\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\n\n# Placeholder Lexis grid\nexpand.grid(period = 2000:2020, age = 18:80) |&gt; \n  ggplot(aes(x = period, y = age)) +\n  geom_tile(fill = \"steelblue\", color = \"white\", alpha = 0.3) +\n  labs(\n    title = \"Lexis Framework Grid (GB Data)\",\n    x = \"Period (Calendar Year)\",\n    y = \"Age\"\n  ) +\n  theme_minimal()\n\n\n\n\nSample Lexis grid showing temporal exposure distribution.\n\n\n\n:::"
+    "text": "Road safety and mobility outcomes change over time due to three distinct temporal drivers: * Age Effect: Biological, behavioral, or experiential variations across life stages. * Period Effect: External shocks affecting all age groups simultaneously (e.g., policy changes, pandemic lockdowns). * Cohort Effect: Generational differences shaped by shared historical exposure.\n\n\nShow code\nlibrary(ggplot2)\n\n# Placeholder Lexis grid\nexpand.grid(period = 2000:2020, age = 18:80) |&gt; \n  ggplot(aes(x = period, y = age)) +\n  geom_tile(fill = \"steelblue\", color = \"white\", alpha = 0.3) +\n  labs(\n    title = \"Lexis Framework Grid (GB Data)\",\n    x = \"Period (Calendar Year)\",\n    y = \"Age\"\n  ) +\n  theme_minimal()\n\n\n\n\n\nSample Lexis grid showing temporal exposure distribution."
+  },
+  {
+    "objectID": "pages/health-impacts.html",
+    "href": "pages/health-impacts.html",
+    "title": "Health & Environmental Impacts",
+    "section": "",
+    "text": "Coming soon: Noise pollution, active travel, and health outcomes."
   },
   {
     "objectID": "about.html",
