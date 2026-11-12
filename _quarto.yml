@@ -9,19 +9,20 @@ website:
   favicon: images/logo.png
 
   navbar:
+    logo: images/logo.png
     background: primary
     search: true
     left:
       - href: index.qmd
         text: Home
-      - text: Observatory Modules
-        menu:
-          - href: pages/exposure.qmd
-            text: Synthetic Exposure
-          - href: pages/apc-models.qmd
-            text: APC Models & Lexis
-          - href: pages/health-impacts.qmd
-            text: Health & Environment
+      - href: pages/benchmarking-trends.qmd
+        text: Benchmarking & Trends
+      - href: pages/spatial-risk.qmd
+        text: Spatial Risk & Exposure
+      - href: pages/data-validation.qmd
+        text: Data Linkage & Validation
+      - href: approach.qmd
+        text: Our Standards
       - href: about.qmd
         text: About
     right:
@@ -30,7 +31,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: pulse
     toc: true
     toc-depth: 3
     code-fold: true

@@ -1,0 +1,119 @@
+---
+title: "Spatial Risk & Exposure"
+subtitle: "Disentangling casualty risk from geographic boundary drift and synthetic exposure metrics at the micro-area level."
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+## The Challenge: Mapping Risk Without Geographical Distortion
+
+Evaluating spatial casualty patterns down to the Lower Layer Super Output Area (LSOA) level is essential for targeted local interventions. However, **raw collision maps are notoriously misleading.**
+
+Mapping raw casualty counts by LSOA often highlights where populations live or aggregate, rather than where the underlying environment is genuinely dangerous. Furthermore, analyzing multi-decade spatial trends introduces severe geographical friction:
+
+* **Boundary Drift:** UK administrative boundaries are a moving target. LSOAs changed significantly between the 2011 and 2021 censuses—some merged, others split, and many had their borders adjusted.
+* **Residence vs. Incident Multiplicity:** Mapping casualties by **home location** reveals residential vulnerability and community risk profiles, but requires careful handling to avoid conflating residential density with localized road danger.
+* **The Exposure Vacuum:** Without a reliable measure of local movement or population at risk (exposure), a high-casualty LSOA might simply be a high-volume corridor, masking its true rate of risk.
+
+---
+
+## Our Analytical Approach
+
+We build micro-area spatial models that normalise casualty occurrences against synthetic exposure metrics while maintaining deterministic spatial integrity across census boundary shifts.
+
+```{R spatial-risk-architecture}
+#| label: fig-spatial-risk-architecture
+#| fig-cap: "DataOps pipeline architecture for Spatial Risk & Exposure"
+#| message: false
+#| warning: false
+library(tibble)
+library(tidygraph)
+library(ggraph)
+nodes <- tibble(id = 1:4, name = c(
+    "Raw Casualty Data & Spatial Geographies\n(STATS19 & OS Boundaries)",
+    "Boundary & Code Reconciliation\n• 2011 vs 2021 LSOA boundary lookups\n• Local Authority unitarisations",
+    "Synthetic Exposure Modeling\n• Micro-area travel volumes\n• Population & modal baselines",
+    "True Spatial Risk Surfaces\n(LSOA-level normalized exposure)"),
+  node_type = c("source", "branch", "branch", "sink"), x = c(0, -3.2, 3.2, 0), y = c(2, 1, 1, 0))
+edges <- tibble(from = c(1, 1, 2, 3), to   = c(2, 3, 4, 4))
+graph <- tbl_graph(nodes = nodes, edges = edges, directed = TRUE)
+p <- ggraph(graph, layout = "manual", x = x, y = y) +
+  geom_edge_link(arrow = arrow(length = unit(5, "mm"), type = "closed"),
+    end_cap = circle(28, "mm"), color = "#ced4da", width = 1.2) +
+  geom_node_label(aes(label = name, fill = node_type), color = "#212529",
+    fontface = "bold", label.padding = unit(14, "pt"), label.r = unit(8, "pt"), size = 4) +
+  scale_fill_manual(values = c("source" = "#e2d9f3", "branch" = "#f8f9fa", "sink"   = "#6f42c1")) +
+  scale_x_continuous(limits = c(-6.2, 6.2)) +
+  scale_y_continuous(limits = c(-0.5, 2.5)) +
+  theme_void() +
+  theme(legend.position = "none", plot.margin = margin(20, 20, 20, 20))
+
+p
+```
+
+---
+
+## Featured Analytical Modules
+
+### 1. Residential Casualty Mapping (LSOA Home Locations)
+
+Mapping casualties by their home LSOA shifts the focus from *where collisions happen* to *who is being affected*. This residential perspective is crucial for public health, equity, and targeted community interventions:
+
+* **Vulnerability Mapping:** Identifies residential neighbourhoods where inhabitants suffer disproportionate casualty rates regardless of where the crash occurred.
+* **Socioeconomic & Demographic Context:** Links residential casualty profiles directly to local deprivation indices, age structure, and household transport access.
+* **Targeted Health Interventions:** Provides local authorities with the precise spatial evidence needed to deploy community-level road safety education and active travel support.
+
+---
+
+### 2. Synthetic Exposure & Boundary Harmonisation
+
+Raw counts only tell you *where*; spatial risk modelling tells you *how dangerous*.
+
+To measure true risk, we combine casualty home locations with synthetic exposure baselines while accounting for administrative changes:
+
+* **Harmonising Census Boundaries:** We map historical 2011 LSOA records and post-2023 2021 LSOA census codes into a single, unified spatial frame. This ensures 10-plus year trendlines reflect actual changes on the ground rather than administrative boundary adjustments.
+* **Synthetic Exposure Rates:** By synthesising local trip generation, census commute patterns, and modal splits, we convert raw casualty counts into risk rates per unit of population exposure.
+* **Spatial Smoothing & Noise Reduction:** Micro-area data can be noisy. We apply empirical Bayes spatial smoothing to prevent small-sample LSOAs from distorting local risk maps.
+
+---
+
+## Built on Deterministic Spatial Infrastructure
+
+High-resolution spatial analysis requires absolute pipeline discipline to prevent silent geographic errors:
+
+::: {.callout-note}
+### Spatial Pipeline Assurance
+* **Containerised PostGIS Engine:** All spatial joins, point-in-polygon queries, and distance calculations execute within isolated Docker containers to guarantee bit-for-bit spatial reproducibility across machines.
+* **Version-Controlled Crosswalks:** Boundary conversion tables (2011-to-2021 LSOA mapping) are version-controlled alongside application code. If a boundary definition updates, the impact is tracked deterministically.
+* **Automated Spatial Snapshots:** Our automated testing suite verifies total spatial coverage and boundary completeness on every build, ensuring no unmapped LSOAs or orphan records quietly drop off the map.
+:::
+
+---
+
+## Explore the Case Studies & Interactive Maps
+
+Examine micro-area spatial risk distributions or explore how synthetic exposure adjusts raw casualty counts:
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+### [LSOA Residential Casualty Maps →](lsoa-residential-risk.qmd)
+Interactive spatial visualisations tracking casualty home locations across UK LSOAs, highlighting community-level vulnerability patterns.
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+### [Synthetic Exposure & Boundary Crosswalks →](exposure-modelling.qmd)
+Technical deep-dive into synthetic exposure estimation methods and 2011-to-2021 LSOA boundary harmonisation techniques.
+:::
+:::
+:::
+
+:::

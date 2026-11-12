@@ -1,4 +1,4 @@
 ---
 title: "Synthetic Exposure Variables"
 ---
-Coming soon: Deep dive into synthetic exposure modeling.
+Coming soon: Deep dive into synthetic exposure modelling.

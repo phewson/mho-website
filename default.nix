@@ -4,6 +4,8 @@ let
   rEnv = pkgs.rWrapper.override {
     packages = with pkgs.rPackages; [
       tidyverse
+      tidygraph
+      ggraph
       ggplot2
       Epi
       rmarkdown

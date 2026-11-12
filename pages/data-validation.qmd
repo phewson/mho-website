@@ -1,0 +1,117 @@
+---
+title: "Data Linkage & Validation"
+subtitle: "Cross-checking police transport reports against medical mortality registrations to ensure bulletproof data integrity."
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+## The Challenge: Administrative Data Is Full of Hidden Friction
+
+Public sector planning and spatial analytics often rely on administrative datasets as if they were objective ground truths. In practice, **administrative data is complex, evolving, and prone to systemic gaps:**
+
+* **Scope & Definition Divergence:** Police collision statistics (**STATS19**) capture reported crashes on public highways. Medical mortality records (**ONS/Coroner ICD-10 transport codes V01–V99**) record underlying cause of death regardless of location or reporting body.
+* **Coroner Inquest Lags:** Death registrations involving coroners often take months or years to resolve. Temporary holding codes (e.g., ICD-10 `U50.9`) delay final cause-of-death coding, creating historical discrepancies against real-time police stats.
+* **Format & Schema Shifts:** External data providers quietly update past reporting years, alter file structures, or revise reporting criteria after publication.
+
+If an analytics system blindly ingests these datasets without cross-validation, decision-makers risk building long-term transport policies on incomplete or silently corrupted numbers.
+
+---
+
+## Our Analytical Approach
+
+We build continuous, automated data validation pipelines that cross-link independent data sources, resolve classification gaps, and calibrate custom queries against official national control totals.
+
+```{R data-valiation-architecture}
+#| label: fig-data-validation-architecture
+#| fig-cap: "DataOps pipeline architecture for Data Linkage & Validation"
+#| message: false
+#| warning: false
+library(tibble)
+library(tidygraph)
+library(ggraph)
+nodes <- tibble(id = 1:4,  name = c(
+    "STATS19 Police Data\n(Public Road Collisions)",
+    "ONS / Coroner Mortality\n(ICD-10 Transport V-Codes)",
+    "Data Linkage & Calibration Layer\n Probabilistic & multi-pass linkage\n Inquest lag tracking\n• National benchmark calibration (RRCGB)",
+    "Auditable, Calibrated Data Engine\n(High-integrity analytical output)"),
+  node_type = c("source", "source", "branch", "sink"), x = c(-1.5, 1.5, 0, 0), y = c(2, 2, 1, 0))
+edges <- tibble(from = c(1, 2, 3), to   = c(3, 3, 4))
+graph <- tbl_graph(nodes = nodes, edges = edges, directed = TRUE)
+p <- ggraph(graph, layout = "manual", x = x, y = y) +
+  geom_edge_link(arrow = arrow(length = unit(4, "mm"), type = "closed"),
+    end_cap = circle(14, "mm"), color = "#ced4da", width = 1.2) +
+  geom_node_label(aes(label = name, fill = node_type), color = "#212529", fontface = "bold",
+    label.padding = unit(14, "pt"), label.r = unit(8, "pt"), size = 4) +
+  scale_fill_manual(values = c("source" = "#e2d9f3", "branch" = "#f8f9fa", "sink"   = "#6f42c1")) +
+  scale_x_continuous(limits = c(-2.8, 2.8)) +
+  scale_y_continuous(limits = c(-0.5, 2.6)) +
+  theme_void() +
+  theme(legend.position = "none", plot.margin = margin(20, 20, 20, 20))
+
+p
+
+```
+
+---
+
+## Featured Analytical Modules
+
+### 1. Cross-Source Casualty Linkage (STATS19 vs. Coroner ICD-10)
+
+By linking police-reported collisions with medical death registrations, we reconcile structural gaps between transport reporting and medical mortality data:
+
+* **Scope Reconciliation:** Disentangles collisions occurring on private land, medical events preceding a crash (e.g., cardiac arrest prior to collision), and suicide classifications (`X82`) that may be miscategorised in initial reporting.
+* **Coroner Lag Adjustment:** Tracks historical revision curves as coroner inquests conclude, ensuring long-term mortality trendlines accurately reflect true year-of-death statistics rather than reporting lag.
+* **Completeness Assessment:** Measures under-reporting rates across transport modes and geographical regions by comparing health system admissions against police scene reports.
+
+---
+
+### 2. National Benchmark Calibration (RRCGB Alignment)
+
+Custom spatial queries and sub-national filters should never exist in isolation. Every analytical output in our system is calibrated against official national standards:
+
+* **Cryptographic-Level Baseline Verification:** Our automated test suites run continuous verification queries comparing our pipeline outputs directly against published tables in *Reported Road Casualties Great Britain* (RRCGB).
+* **Zero Discrepancy Guarantee:** Matching national published totals down to the exact decimal gives stakeholders absolute confidence that custom LSOA spatial filters, local authority aggregations, and sub-population splits are mathematically sound.
+
+---
+
+## Built on Open, Deterministic DataOps
+
+Data validation is only as good as the infrastructure supporting it. Our validation pipeline treats data updates as continuous code integrations:
+
+::: {.callout-note}
+### The DataOps Guarantee
+* **Data Time Travel (DVC):** Raw source files and intermediate datasets are version-controlled using Data Version Control. If a government dataset is quietly updated two years after initial release, we can roll the database back to any exact historical state to explain why numbers changed.
+* **Automated Smoke Alarms (`snapshotr`):** Regression tests flag unexpected shifts in row counts, spatial coverage, or indicator totals the second a dataset is updated—preventing bad data from quietly reaching production dashboards.
+* **Deterministic Schema Migrations:** All database schema changes and spatial lookup updates are versioned and executed programmatically, leaving a complete audit trail for external reviewers.
+:::
+
+---
+
+## Explore the Case Studies & Validation Frameworks
+
+Examine how independent national datasets compare or review our automated testing setup:
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+### [STATS19 vs. Coroner ICD-10 Linkage →](stats19-icd10-linkage.qmd)
+A deep-dive case study linking police collision data with ONS mortality registrations to map reporting gaps and coroner inquest lag.
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100}
+::: {.card-body}
+### [National Calibration & Testing Framework →](rrcgb-calibration.qmd)
+Technical documentation showing how automated regression testing and RRCGB benchmark calibration guarantee pipeline accuracy.
+:::
+:::
+:::
+
+:::

@@ -12,10 +12,10 @@ Welcome to the **Mobility Health Observatory (MHO)**. This platform provides dat
 
 ---
 
-## Observatory Modules
+# Analytical Pillars
 
-| Module | Scope & Methodology | Coverage |
+| Pillar | Scope & Methodology | Key Modules & Coverage |
 | :--- | :--- | :--- |
-| **[Synthetic Exposure](pages/exposure.qmd)** | Synthetic travel patterns, distance metrics, and activity baselines | England & Wales / GB |
-| **[APC Models & Lexis](pages/apc-models.qmd)** | Age-Period-Cohort fits, long-term trends, and Lexis diagrams | Great Britain |
-| **[Health & Environment](pages/health-impacts.qmd)** | Noise pollution, active travel benefits, and multi-outcome risks | Selected GB Regions |
+| **[Benchmarking & Trends](pages/benchmarking-trends.qmd)** | Isolating true policy interventions from demographic noise and structural shifts. | • **APC & Lexis Models**<br>• **Pareto Efficiency Frontiers**<br>*Coverage: Great Britain* |
+| **[Spatial Risk & Exposure](pages/spatial-risk.qmd)** | Micro-area casualty mapping with built-in boundary reconciliation. | • **LSOA Home Location Mapping**<br>• **Synthetic Exposure Baselines**<br>• **Boundary Lookups (2011/2021)**<br>*Coverage: England & Wales* |
+| **[Data Linkage & Validation](pages/data-validation.qmd)** | Cross-checking independent national data sources for absolute integrity. | • **STATS19 vs. Coroner ICD-10**<br>• **Inquest Lag Tracking**<br>• **Official Benchmark Calibration (RRCGB)**<br>*Coverage: Great Britain* |

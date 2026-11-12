@@ -1,0 +1,98 @@
+---
+title: "Data Integrity & our Spatial Analytics Engine"
+subtitle: "Why Work With Us?"
+---
+
+
+Building a basic dashboard is easy. Building an auditable, trustable data engine that survives changing real-world boundaries, shifting government datasets, and strict scrutiny is hard.
+
+If your decision-making relies on long-term spatial trends—such as road safety metrics, local authority planning, or demographic shifts—you cannot afford "silent data errors." Traditional ad-hoc dashboards often mask boundary changes or retroactive data updates, leaving you vulnerable to flawed conclusions, embarrassing discrepancies, or failed audits.
+
+We build production-grade, highly rigorous analytics pipelines designed around four core promises:
+
+- *Complete Historical Auditability ("Data Time Travel")*: Government data sources and administrative boundaries change constantly. If a metric from a report published two years ago doesn't match today's numbers, we can instantly roll our system back to the exact data state on the day that report was generated. You never have to guess whether a shift was caused by a change in our calculations or an official update from the data provider.
+
+- *Guaranteed Accuracy via National Calibration*: We don't just write queries and hope they work. Every spatial and statistical pipeline we build is continuously benchmarked and validated directly against official published national statistics (such as Reported Road Casualties Great Britain). If our baselines match the official national aggregates, you can have 100% confidence in our custom spatial breakdowns and local filtering.
+
+- *Automated Data Quality & Smoke Testing*: When local authorities split, boundary codes update (like LSOA shifts between census years), or incoming files contain corrupted formatting, our system catches it instantly. Instead of letting bad data silently drop rows or distort your trendlines, our automated safety checks flag issues internally before anything reaches your executive dashboard.
+
+- *Zero Vendor Lock-In & Portability*: Everything we build is containerised and version-controlled. You are not buying a fragile desktop spreadsheet or a proprietary black box; you are investing in a durable, open-source asset that your team can run, audit, or migrate to any cloud environment at any time.
+
+### Technical Architecture & Engineering Standards
+
+For technical stakeholders, auditors, and engineering teams, our pipeline implements modern DataOps principles to ensure complete reproducibility, regression testing, and deterministic deployments.
+
+
+```{R dataops-pipeline-architecture}
+#| label: fig-dataops-pipeline-architecture
+#| fig-cap: "End-to-End DataOps Assurance Pipeline Architecture"
+#| message: false
+#| warning: false
+
+library(tibble)
+library(tidygraph)
+library(ggraph)
+
+nodes <- tibble(
+  id = 1:5,
+  name = c(
+    "Source Data & Boundary Maps\n(External Feeds & OS Geographies)",
+    "Data & Schema Version Control\n Data artifact versioning (DVC)\n Deterministic schema migrations (Sqitch)",
+    "Isolated Spatial Database (Docker)\n Containerised spatial engine\n Automated schema & lookup validation",
+    "Orchestration & Dependency DAG\n Granular dependency tracking (targets)\n Incremental build processing",
+    "Automated QA & Regression Suite\n Snapshot testing on outputs (snapshotr)\n Automated calibration vs. benchmarks"
+  ),
+  node_type = c("source", "branch", "branch", "branch", "sink"),
+  x = c(0, 0, 0, 0, 0),
+  y = c(8, 6, 4, 2, 0)
+)
+
+edges <- tibble(
+  from = c(1, 2, 3, 4),
+  to   = c(2, 3, 4, 5)
+)
+
+graph <- tbl_graph(nodes = nodes, edges = edges, directed = TRUE)
+
+p <- ggraph(graph, layout = "manual", x = x, y = y) +
+  geom_edge_link(
+    arrow = arrow(length = unit(4, "mm"), type = "closed"),
+    end_cap = circle(14, "mm"),
+    color = "#ced4da",
+    width = 1.2
+  ) +
+  geom_node_label(
+    aes(label = name, fill = node_type),
+    color = "#212529",
+    fontface = "bold",
+    label.padding = unit(2, "pt"),
+    label.r = unit(8, "pt"),
+    size = 4
+  ) +
+  scale_fill_manual(values = c(
+    "source" = "#e2d9f3",
+    "branch" = "#f8f9fa",
+    "sink"   = "#6f42c1"
+  )) +
+  scale_x_continuous(limits = c(-2.5, 2.5)) +
+  scale_y_continuous(limits = c(-.5, 8.5)) +
+  theme_void() +
+  theme(
+    legend.position = "none",
+    plot.margin = margin(20, 20, 20, 20)
+  )
+
+p
+```
+
+### Key Technical Components
+
+-    Data Artifact & Schema Versioning: Raw datasets, boundary lookups, and database schemas are version-controlled alongside application code. Schema migrations are executed deterministically, enabling complete forward/backward rollbacks to any historical state.
+
+-    Containerised Spatial Infrastructure: The underlying spatial database runs inside isolated container environments. This guarantees identical execution environments across local development, continuous integration (CI) runners, and production deployment.
+
+-    Directed Acyclic Graph (DAG) Pipeline Orchestration: Pipeline stages—from raw data ingestion to geographic re-projection and boundary crosswalk joins—are managed via strict dependency tracking. Only modified steps are re-executed upon data or code changes, eliminating computational waste.
+
+-    Automated Regression & Snapshot Testing: Analytical outputs undergo continuous automated testing against stored baseline snapshots. Any unexpected drift in aggregated row counts, spatial coverage, or indicator totals triggers build failures prior to deployment.
+
+-    Calibrated Baseline Validation: Integration test suites run automated verification queries against published national aggregates. This guarantees mathematical alignment between sub-national spatial queries and top-level official control totals.
