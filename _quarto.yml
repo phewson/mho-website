@@ -6,6 +6,7 @@ website:
   title: "Mobility Health Observatory"
   site-url: "https://mobility.insightsforaction.uk"
   description: "Synthetic exposure, safety, and health analytics across Great Britain"
+  favicon: images/logo.png
 
   navbar:
     background: primary
@@ -13,17 +14,19 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: pages/exposure.qmd
-        text: Synthetic Exposure
-      - href: pages/apc-models.qmd
-        text: APC Models & Lexis
-      - href: pages/health-impacts.qmd
-        text: Health & Environment
+      - text: Observatory Modules
+        menu:
+          - href: pages/exposure.qmd
+            text: Synthetic Exposure
+          - href: pages/apc-models.qmd
+            text: APC Models & Lexis
+          - href: pages/health-impacts.qmd
+            text: Health & Environment
       - href: about.qmd
         text: About
     right:
       - icon: github
-        href: https://github.com/your-username/mho-website
+        href: https://github.com/phewson/mho-website
 
 format:
   html:
