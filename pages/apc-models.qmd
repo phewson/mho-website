@@ -10,7 +10,7 @@ Road safety and mobility outcomes change over time due to three distinct tempora
 * **Period Effect:** External shocks affecting all age groups simultaneously (e.g., policy changes, pandemic lockdowns).
 * **Cohort Effect:** Generational differences shaped by shared historical exposure.
 
-```r
+
 ```{r}
 #| label: lexis-placeholder
 #| fig-cap: "Sample Lexis grid showing temporal exposure distribution."
